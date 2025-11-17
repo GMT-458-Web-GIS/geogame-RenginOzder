@@ -1,0 +1,731 @@
+[
+    {
+      "name": "Adana",
+      "question": "Which city would brag, ‘Sure, everybody has ruins, but I’ve got a Roman bridge that still works, beat that!’?",
+      "hints": [
+        "Home of the Taşköprü, still used since Roman times.",
+        "A fortress standing proudly over Çukurova plains.",
+        "Also famous for kebab that challenges human endurance."
+      ]
+    },
+  {
+    "name": "Adıyaman",
+    "question": "Where can you stand under giant stone heads that stare at you like they know your browser history?",
+    "hints": [
+      "The kings here definitely weren’t shy about statues.",
+      "Massive statues from the Commagene Kingdom.",
+      "Sunrise is greeted by stone faces before you wake up."
+    ]
+  },
+  {
+    "name": "Afyonkarahisar",
+    "question": "Where can you climb a huge volcanic rock fortress and pretend you’re defending medieval Wi-Fi?",
+    "hints": [
+      "Famous for its castle built on a volcanic rock.",
+      "Also known for marble and sucuk.",
+      "Located in the Aegean inland region."
+    ]
+  },
+  {
+    "name": "Ağrı",
+    "question": "Which province hosts the mountain everyone thinks has a parking space for Noah’s Ark?",
+    "hints": [
+      "Home to Turkey's highest mountain.",
+      "Often associated with the story of the Ark.",
+      "Eastern baroque, mountain weather."
+    ]
+  },
+  {
+    "name": "Aksaray",
+    "question": "Which city lets you explore an underground town big enough to hide your entire to-do list?",
+    "hints": [
+      "Near Ihlara Valley.",
+      "Has cave and underground settlements.",
+      "Churches carved quietly into rock."
+    ]
+  },
+  {
+    "name": "Amasya",
+    "question": "Where do ancient cliff tombs watch over the city like very silent, very judgmental neighbors?",
+    "hints": [
+      "Rock tombs overlook the modern city.",
+      "Amazingly vertical real estate.",
+      "Also famous for apples."
+    ]
+  },
+  {
+    "name": "Ankara",
+    "question": "Which city proudly says: ‘My museum is so important, even the founder of the Republic lives here forever’?",
+    "hints": [
+      "Home of Anıtkabir.",
+      "Capital of Turkey.",
+      "Marching-straight lines, calm atmosphere."
+    ]
+  },
+  {
+    "name": "Antalya",
+    "question": "Where can you hike Lycian ruins until you seriously consider joining a temple just to sit down?",
+    "hints": [
+      "Acoustics that could embarrass modern stadiums.",
+      "Home to ancient cities like Termessos and Olympos.",
+      "Huge semicircle near the coast."
+    ]
+  },
+  {
+    "name": "Artvin",
+    "question": "Where is the fortress so dramatic you’ll wonder why nobody is filming a Netflix series there?",
+    "hints": [
+      "Full of mountains and deep valleys.",
+      "Castle overlooking the Çoruh River.",
+      "Getting there gives you a hiker’s reward."
+    ]
+  },
+  {
+    "name": "Aydın",
+    "question": "In which province can you walk streets once wandered by Heraclitus, ancient champion of deep thinking and probably sarcastic comments?",
+    "hints": [
+      "Ephesus is nearby.",
+      "Home to many ancient Ionian sites.",
+      "If you love marble sculptures, this is paradise."
+    ]
+  },
+  {
+    "name": "Balıkesir",
+    "question": "Which city offers a mountaintop ancient city with a theater so steep you’ll feel like you’re falling into history?",
+    "hints": [
+      "Home to ancient Pergamon nearby.",
+      "Located between the Aegean and Marmara.",
+      "Olive trees nearby are not a coincidence."
+    ]
+  },
+  {
+    "name": "Bilecik",
+    "question": "Where did the Ottoman Empire begin — with fewer people, less paperwork, and zero budget meetings?",
+    "hints": [
+      "Birthplace of the Ottoman Beylik.",
+      "Home to Söğüt.",
+      "Red flags and green lawns welcome you."
+    ]
+  },
+  {
+    "name": "Bingöl",
+    "question": "Which province is home to mysterious crater lakes that look like giant meteor splashes from space?",
+    "hints": [
+      "The name means 'thousand lakes'.",
+      "Famous for crater and volcanic lakes.",
+      "Located in Kiğı Castle."
+    ]
+  },
+  {
+    "name": "Bitlis",
+    "question": "Where can you explore a castle staring down at a lake like it’s in a staring contest with nature?",
+    "hints": [
+      "Near Lake Van.",
+      "Has a historic stone architecture style.",
+      "Rising like a basalt giant in the center of town."
+    ]
+  },
+  {
+    "name": "Bolu",
+    "question": "Where might you find a museum dedicated to reflecting centuries of regional history — without Wi-Fi but with lots of stories?",
+    "hints": [
+      "A lakeside postcard without needing Photoshop.",
+      "Small house, big scenery.",
+      "Historic trade town between Ankara and Istanbul."
+    ]
+  },
+  {
+    "name": "Burdur",
+    "question": "Which city keeps a museum full of some of the best statues found in Türkiye, staring at you like you owe them money?",
+    "hints": [
+      "Home to Sagalassos nearby.",
+      "Known for rich Roman artifacts.",
+      "Statues that are too big to ignore."
+    ]
+  },
+  {
+    "name": "Bursa",
+    "question": "Where does a UNESCO-recognized early Ottoman city center check off ‘historical, impressive, and looks great in photos’?",
+    "hints": [
+      "First capital of the Ottoman Empire.",
+      "Home to Ulu Cami and Green Tomb.",
+      "Sometimes an island, sometimes a peninsula — depends on water mood."
+    ]
+  },
+  {
+    "name": "Çanakkale",
+    "question": "Where can you see a giant horse that reminds everyone that sometimes the guests you welcome end up burning down your city?",
+    "hints": [
+      "A horse once fooled a whole army here.",
+      "World War I Gallipoli battles took place here.",
+      "Located on the Dardanelles strait."
+    ]
+  },
+  {
+    "name": "Çankırı",
+    "question": "Where can you explore a museum inside a stunning traditional mansion that looks too classy for your current life choices?",
+    "hints": [
+      "Known for rock salt mines.",
+      "Walls that taste salty — literally.",
+      "Statues carved by miners guide the way."
+    ]
+  },
+  {
+    "name": "Çorum",
+    "question": "Which province houses a museum filled with treasures from the Hittites — history’s earliest international paperwork experts?",
+    "hints": [
+      "Hattusa is nearby.",
+      "Major Hittite archaeological center.",
+      "Lion Gate watching visitors like bouncers."
+    ]
+  },
+  {
+    "name": "Denizli",
+    "question": "Where can you walk terraces so white and shiny you’ll feel like you accidentally stepped into a detergent commercial?",
+    "hints": [
+      "White cliffs that look like frozen waterfalls.",
+      "Ancient city of Hierapolis nearby.",
+      "Hot springs on ancient marble streets."
+    ]
+  },
+  {
+    "name": "Diyarbakır",
+    "question": "Which city has black basalt walls so strong even time itself gave up arguing?",
+    "hints": [
+      "Second only to the Great Wall in length.",
+      "Has ancient city walls that stretch kilometers.",
+      "Black basalt walls thick enough to survive centuries."
+    ]
+  },
+  {
+    "name": "Düzce",
+    "question": "Where ancient ruins peek out safely behind mountains that clearly enjoy being mysterious?",
+    "hints": [
+      "A Roman theatre hidden in modern city blocks.",
+      "Youngest Turkish province.",
+      "Rich in natural parks and rivers."
+    ]
+  },
+  {
+    "name": "Edirne",
+    "question": "Where a mosque domed so perfectly makes architects weak in the knees and photographers forget memory cards?",
+    "hints": [
+      "A dome that made Sinan say ‘my masterpiece’.",
+      "Near the borders with Greece and Bulgaria.",
+      "Symmetry that architects drool over."
+    ]
+  },
+  {
+    "name": "Elazığ",
+    "question": "Which province features an archaeological museum full of artifacts that survived more centuries than your phone battery survives hours?",
+    "hints": [
+      "Home to Harput Castle.",
+      "Sits on a hill like it owns the landscape.",
+      "Locals call it ‘milk castle’… ask them why."
+    ]
+  },
+  {
+    "name": "Erzincan",
+    "question": "Where rock carvings from ancient civilizations prove that people were doodling long before notebooks existed?",
+    "hints": [
+      "Famous for Kemaliye rock formations.",
+      "Home to special Museum.",
+      "Located in Eastern Anatolia."
+    ]
+  },
+  {
+    "name": "Erzurum",
+    "question": "Which city has a medieval madrasa looking so beautiful it might convince you to start studying again?",
+    "hints": [
+      "Home to the Çifte Minareli Medrese.",
+      "Winter sports capital.",
+      "Twin towers — the medieval version."
+    ]
+  },
+  {
+    "name": "Eskişehir",
+    "question": "Which city has a fairy-tale castle in a public park — because why should Disneyland have all the fun?",
+    "hints": [
+      "Home to Odunpazarı houses.",
+      "Has a contemporary archaeology museum.",
+      "Wood balconies, warm streets, and Turkish coffee."
+    ]
+  },
+  {
+    "name": "Gaziantep",
+    "question": "Where a museum full of mosaics shows that ancient artists had more patience than anyone alive today?",
+    "hints": [
+      "Mosaics so vivid they still raise eyebrows.",
+      "The Gypsy Girl knows your secrets.",
+      "Known for baklava and pistachios."
+    ]
+  },
+  {
+    "name": "Giresun",
+    "question": "Which province has a castle with panoramic views that practically shout ‘take a selfie!’?",
+    "hints": [
+      "Trees, cliffs, and city rooftops below.",
+      "If the wind hits strong — yep, you’re there, cause its a Black Sea.",
+      "Famous for hazelnuts."
+    ]
+  },
+  {
+    "name": "Gümüşhane",
+    "question": "Where a hidden Byzantine monastery is tucked into cliffs like a historic USB drive plugged into the mountains?",
+    "hints": [
+      "Home to Santa Kinga Monastery.",
+      "Famous for silver mines historically.",
+      "No gift shop — pure atmosphere."
+    ]
+  },
+  {
+    "name": "Hakkari",
+    "question": "Which province has ancient stone stelae that look like ancestors watching you like a disappointed committee?",
+    "hints": [
+      "Petroglyphs that survived everything.",
+      "Very mountainous and rugged.",
+      "If the museum suddenly feels heroic — found."
+    ]
+  },
+  {
+    "name": "Hatay",
+    "question": "Where the archaeology museum holds mosaics so impressive your eyes might need a union-mandated break?",
+    "hints": [
+      "Carved directly into the mountainside.",
+      "Ancient city of Antioch nearby.",
+      "Early Christians used it before pajamas were invented."
+    ]
+  },
+  {
+    "name": "Iğdır",
+    "question": "Where you can see ancient structures with Mount Ararat posing dramatically in the background like it owns the place?",
+    "hints": [
+      "Mount Ararat photobombs almost every picture.",
+      "If the silence is loud, you found it.",
+      "Home to historic castles and petroglyphs."
+    ]
+  },
+  {
+    "name": "Isparta",
+    "question": "Which city has ancient Pisidian ruins that have been thinking deep thoughts since before philosophy was cool?",
+    "hints": [
+      "Home to ancient city of Sagalassos.",
+      "Famous for roses.",
+      "St. Paul would definitely remember this walk."
+    ]
+  },
+  {
+    "name": "İstanbul",
+    "question": "Where can you walk through a palace so lavish that even the curtains look more expensive than your salary?",
+    "hints": [
+      "Home to Topkapi Palace and Hagia Sophia.",
+      "Straddles Europe and Asia.",
+      "View of the Bosphorus included in the ticket."
+    ]
+  },
+  {
+    "name": "İzmir",
+    "question": "Where the ancient city of Smyrna continues the noble tradition of ‘civilization: version 87.3’?",
+    "hints": [
+      "Home to Agora of Smyrna.",
+      "Located on the Aegean coast.",
+      "Known for vibrant culture and port."
+    ]
+  },
+  {
+    "name": "Kahramanmaraş",
+    "question": "Where the archaeology museum displays statues and inscriptions that have survived more earthquakes than you’ve survived Mondays?",
+    "hints": [
+      "Famous for the ice cream.",
+      "Located in Southeastern Anatolia.",
+      "Historic museum with Roman artifacts."
+    ]
+  },
+  {
+    "name": "Karabük",
+    "question": "Which province shows off Safranbolu, where Ottoman mansions look better than most modern houses and definitely smell less like fresh paint?",
+    "hints": [
+      "Safranbolu is UNESCO World Heritage site.",
+      "Famous for Ottoman architecture.",
+      "Located in Black Sea region."
+    ]
+  },
+  {
+    "name": "Karaman",
+    "question": "Where caves and underground halls prove that medieval people also desperately needed alone time?",
+    "hints": [
+      "Home to Binbirkilise ruins.",
+      "Located in Central Anatolia.",
+      "Rich in historical Seljuk sites."
+    ]
+  },
+{
+    "name": "Kars",
+    "question": "Where an abandoned medieval city stands dramatically on the border like ‘yes, I am mysterious and no, you can’t top this view’?",
+    "hints": [
+        "Home to the ancient city of Ani.",
+        "Located near the northeastern border of Turkey.",
+        "Famous for medieval churches and ruins."
+    ]
+},
+  {
+    "name": "Kastamonu",
+    "question": "Which city proudly keeps a museum in a building that looks like the perfect location for historical movie scenes?",
+    "hints": [
+      "A stone crown on a steep hill.",
+      "Has traditional Ottoman houses.",
+      "The whole town fits in one photo from the top."
+    ]
+  },
+  {
+    "name": "Kayseri",
+    "question": "Where a massive Seljuk hospital complex proves medieval medicine was way more advanced than we give it credit for?",
+    "hints": [
+      "Home to Gevher Nesibe Museum.",
+      "Famous for Seljuk architecture.",
+      "If the minaret looks older than your family tree, correct."
+    ]
+  },
+  {
+    "name": "Kırıkkale",
+    "question": "Which province runs a museum dedicated to weapons through the ages — a polite reminder that paperwork was not the only negotiation method?",
+    "hints": [
+      "A museum that says: ‘don’t mess with me.’",
+      "Known for steel and arms industry.",
+      "If the displays look too sharp to touch, that’s the one."
+    ]
+  },
+  {
+    "name": "Kırklareli",
+    "question": "Which borderside province has archaeological sites that watched empires enter, exit, and forget to clean up after themselves?",
+    "hints": [
+      "Located in Thrace region.",
+      "Earth’s underground cathedral.",
+      "Close to Bulgaria border."
+    ]
+  },
+  {
+    "name": "Kırşehir",
+    "question": "Where the museum and tomb of a legendary troubadour remind you that poetry once mattered more than bandwidth?",
+    "hints": [
+      "Home to Ahi Evran Museum.",
+      "Astronomy class… 800 years early.",
+      "Historical center for craftsmanship and culture."
+    ]
+  },
+  {
+    "name": "Kilis",
+    "question": "Which province has ancient ruins that quietly whisper, ‘civilization was here before your alarm clock existed’?",
+    "hints": [
+      "Home to ancient Oylum Höyük.",
+      "Located near Syrian border.",
+      "Smallest Turkish provinces by population."
+    ]
+  },
+  {
+    "name": "Kocaeli",
+    "question": "Where you can visit an archaeological museum so full of Roman material that the amphorae practically form a condo complex?",
+    "hints": [
+      "Fighting pirates while guarding the Gulf.",
+      "Located near Istanbul.",
+      "Close to the Sea of Marmara."
+    ]
+  },
+  {
+    "name": "Konya",
+    "question": "Where a museum dedicated to whirling dervishes gently reminds you to calm down and spin more, stress less?",
+    "hints": [
+      "Green dome that poetry made famous.",
+      "Whirling dervish vibes all around.",
+      "Located in Central Anatolia."
+    ]
+  },
+  {
+    "name": "Kütahya",
+    "question": "Where you can tour a beautifully preserved Ottoman historic center — with no need to romanticize it using Instagram filters?",
+    "hints": [
+      "Famous for ceramics.",
+      "Columns still refusing to fall.",
+      "Located in Western Anatolia."
+    ]
+  },
+  {
+    "name": "Malatya",
+    "question": "Which city houses ancient Hittite lion statues that seem ready to protect your house from unexpected email notifications?",
+    "hints": [
+      "Mudbrick — 5,000 years of stubborn survival.",
+      "Famous for apricots.",
+      "Located in Eastern Anatolia."
+    ]
+  },
+  {
+    "name": "Manisa",
+    "question": "Where the ancient city of Sardes once showed off the world’s first known shopping street — let that sink in?",
+    "hints": [
+      "Home to Sardes ancient city.",
+      "If the Roman baths are too huge to fit in one shot — bingo.",
+      "Once a Lydian capital dripping with gold history."
+    ]
+  },
+  {
+    "name": "Mardin",
+    "question": "Where golden-stone architecture makes you want to sit on a rooftop and narrate your own documentary in a deep voice?",
+    "hints": [
+      "Courtyards with Mesopotamia views.",
+      "Stairs that make you feel like a scholar-prince.",
+      "Known for its Mesopotamian architecture."
+    ]
+  },
+  {
+    "name": "Mersin",
+    "question": "Where the ancient city of Soli-Pompeiopolis stands like a classical version of ‘you should’ve seen me before urban development’?",
+    "hints": [
+      "Located on Mediterranean coast.",
+      "A castle sitting dramatically in the sea.",
+      "Ancient Soli ruins nearby."
+    ]
+  },
+  {
+    "name": "Muğla",
+    "question": "Where rock-cut Lycian tombs look like ancient apartment buildings built by extremely ambitious architects?",
+    "hints": [
+      "Home to Fethiye and Kaunos ruins.",
+      "Located in southwestern Turkey.",
+      "Popular for tourism and historical sites."
+    ]
+  },
+  {
+    "name": "Muş",
+    "question": "Which province features medieval ruins quietly blending into the mountains like shy historical introverts?",
+    "hints": [
+      "Where a battle changed a continent’s fate.",
+      "Located in Eastern Anatolia.",
+      "Has ancient castles on hills."
+    ]
+  },
+  {
+    "name": "Nevşehir",
+    "question": "Where an entire underground city proves that Cappadocia invented ‘open-plan living’ ironically by putting everything underground?",
+    "hints": [
+      "Home to Derinkuyu underground city.",
+      "Located in Cappadocia region.",
+      "Famous for fairy chimneys."
+    ]
+  },
+  {
+    "name": "Niğde",
+    "question": "Which province hosts Seljuk monuments that stare proudly into the horizon like stone philosophers?",
+    "hints": [
+      "A hidden cave complex larger than expected.",
+      "Ancient Seljuk architecture present.",
+      "Located in Central Anatolia."
+    ]
+  },
+  {
+    "name": "Ordu",
+    "question": "Where a hilltop museum castle mixes amazing sea views with history, just to make everyone jealous?",
+    "hints": [
+      "Reachable by cable car — great entrance.",
+      "Located on Black Sea coast.",
+      "Has coastal museums."
+    ]
+  },
+  {
+    "name": "Osmaniye",
+    "question": "Which province keeps a Hittite fortress overlooking the land like an ancient neighborhood watch group?",
+    "hints": [
+      "Home to Karatepe-Aslantaş Open Air Museum.",
+      "Phoenician and Luwian scripts sharing one wall.",
+      "Famous for historical Hittite artifacts."
+    ]
+  },
+  {
+    "name": "Rize",
+    "question": "Where a castle sits above the misty landscape and looks suspiciously ready for a fantasy movie adaptation?",
+    "hints": [
+      "A medieval watchtower among clouds and tea.",
+      "If the air tastes like fresh leaves, you’ve arrived.",
+      "Famous for tea plantations."
+    ]
+  },
+  {
+    "name": "Sakarya",
+    "question": "Where a museum tells the story of a major war front that completely changed the national script — no pressure?",
+    "hints": [
+      "A Roman bridge still clocked-in for work.",
+      "Solid arches staring calmly at the river.",
+      "If chariots could still cross it — that’s the one."
+    ]
+  },
+  {
+    "name": "Samsun",
+    "question": "Which city has a museum honoring the beginning of a national movement that eventually changed every map in the region?",
+    "hints": [
+      "Home to Bandırma Museum and Atatürk monuments.",
+      "The journey of a republic starts here.",
+      "Famous for its historical landing site."
+    ]
+  },
+  {
+    "name": "Siirt",
+    "question": "Where medieval mosques and structures create an architectural style that whispers, ‘I was elegant before elegance was trending.’",
+    "hints": [
+      "A pilgrimage site wrapped in serene silence.",
+      "Famous for old mosques and Ottoman houses.",
+      "Located in Southeastern Anatolia."
+    ]
+  },
+  {
+    "name": "Sinop",
+    "question": "Where a massive prison museum quietly asks you to imagine the world’s saddest holiday brochures?",
+    "hints": [
+      "Home to Fortress Prison Museum.",
+      "A port city with walls that remember pirates.",
+      "Famous for its peninsula and lighthouse."
+    ]
+  },
+  {
+    "name": "Sivas",
+    "question": "Which city has a medieval college with stone carvings so intricate you’ll suspect elves worked overtime?",
+    "hints": [
+      "Home to Museum and Divriği Great Mosque.",
+      "Located in Central Anatolia.",
+      "Known for medieval architecture."
+    ]
+  },
+  {
+    "name": "Şırnak",
+    "question": "Where ancient wall fragments and settlements prove humans settled here long before washing machines simplified life?",
+    "hints": [
+      "Located in Southeastern Anatolia.",
+      "Has historical castles and settlements.",
+      "Hidden history with minimal tourist footprints."
+    ]
+  },
+  {
+    "name": "Tekirdağ",
+    "question": "Which coastal province holds a museum celebrating its regional history without forcing you to memorize a single date?",
+    "hints": [
+      "Wood-paneled rooms with noble nostalgia.",
+      "Located in Thrace region.",
+      "Famous for Rakı production."
+    ]
+  },
+  {
+    "name": "Tokat",
+    "question": "Where an ancient castle hangs above town like a stern history teacher who can see everything?",
+    "hints": [
+      "Huge chambers filled with alien rock shapes.",
+      "Located in Central Anatolia.",
+      "If the air gets cool and echoey — you’re in."
+    ]
+  },
+  {
+    "name": "Trabzon",
+    "question": "Where a monastery is carved straight into a cliff as if someone said, ‘Let’s put the temple where the eagle lives.’",
+    "hints": [
+      "Home to Sumela Monastery.",
+      "Forest, mist, and impossible architecture.",
+      "Famous for Byzantine architecture."
+    ]
+  },
+  {
+    "name": "Tunceli",
+    "question": "Which province has ancient rock carvings and settlements so quiet you can almost hear history breathing?",
+    "hints": [
+      "Ancient settlements hiding among wild scenery.",
+      "Known for natural beauty and Munzur Valley.",
+      "Located in Eastern Anatolia."
+    ]
+  },
+  {
+    "name": "Şanlıurfa",
+    "question": "Where giant carved pillars prove humans were building monuments before the invention of sliced bread?",
+    "hints": [
+      "Older than ancient. Seriously older.",
+      "Stone T-pillars arranged with weird precision.",
+      "Famous for Balıklıgöl."
+    ]
+  },
+  {
+    "name": "Uşak",
+    "question": "Where the Karun Treasure museum politely says, ‘So… about those artifacts that wandered abroad… glad they’re home now.’",
+    "hints": [
+      "Home to Museum and Karun Treasure.",
+      "Located in Western Anatolia.",
+      "Known for carpets and kilims."
+    ]
+  },
+  {
+    "name": "Van",
+    "question": "Where a civilization carved fortresses above a lake that looks so unreal you’ll check if someone photoshopped it?",
+    "hints": [
+      "Home to Fortress and Museum.",
+      "A medieval church on a lonely island.",
+      "Lake waves and mountain silhouettes."
+    ]
+  },
+  {
+    "name": "Yalova",
+    "question": "Which province hosts a historical thermal complex reminding everyone that spa culture is older than credit cards?",
+    "hints": [
+      "Home to Thermal Baths.",
+      "Atatürk said ‘don’t cut it — move the house.’",
+      "Small province with rich history."
+    ]
+  },
+  {
+    "name": "Yozgat",
+    "question": "Where a converted Ottoman mosque serves as a museum — because historical buildings deserve second careers too.",
+    "hints": [
+      "Hot springs still bubbling after 2,000 years.",
+      "Romans knew their spa days.",
+      "Known for Ottoman architecture."
+    ]
+  },
+  {
+    "name": "Zonguldak",
+    "question": "Where ancient mining heritage reminds you that digging holes was once the basis of an entire economy?",
+    "hints": [
+      "Home to Mining Museum.",
+      "Located on Black Sea coast.",
+      "Famous for coal mining history."
+    ]
+  },
+  {
+    "name": "Ardahan",
+    "question": "Which province has a sky-high fortress that seems one strong wind away from becoming a dramatic helicopter shot?",
+    "hints": [
+      "Home to Castle.",
+      "Located in Eastern Anatolia.",
+      "Near Georgia border."
+    ]
+  },
+  {
+    "name": "Bartın",
+    "question": "Where the historical town center of Amasra sits beside the sea looking like the world’s prettiest desktop wallpaper?",
+    "hints": [
+      "Home to Amasra Castle.",
+      "Located on Black Sea coast.",
+      "Famous for small beaches and seafood."
+    ]
+  },
+  {
+    "name": "Bayburt",
+    "question": "Which province boasts a castle that seems specifically built for dramatic drone footage?",
+    "hints": [
+      "Wide valley views in every direction.",
+      "Located in Northeastern Anatolia.",
+      "Small province with rich history."
+    ]
+  },
+  {
+    "name": "Batman",
+    "question": "Where an ancient city sits beside the Tigris thinking, ‘I used to be a Mesopotamian powerhouse before it was cool.’",
+    "hints": [
+      "Home to Hasankeyf.",
+      "Located in Southeastern Anatolia.",
+      "Famous for Tigris River scenery."
+    ]
+    }
+  ]

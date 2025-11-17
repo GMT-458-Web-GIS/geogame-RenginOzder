@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HueQuest — GeoGame</title>
+
+  <!-- OpenLayers CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.4.0/ol.css">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- START MODAL -->
+  <div id="startModal" class="modal">
+    <div class="modalBox">
+      <h2>Welcome to HueQuest!</h2>
+      <p>Travel all 81 provinces of Türkiye with playful, short questions. Earn points by guessing which province each riddle describes. Hints cost points and require completing a tiny eco-task.</p>
+      <div class="modalButtons">
+        <button id="startBtn" class="btn primary">Start</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="title">HueQuest</div>
+    <div class="score">Score: <span id="score">0</span></div>
+  </header>
+
+  <!-- QUESTION PANEL -->
+  <div id="questionPanel">Question will appear here.</div>
+
+  <!-- MAP -->
+  <div id="map"></div>
+
+  <!-- CONTROL BAR -->
+  <div id="controlBar">
+    <div class="leftControls">
+      <button id="hintBtn" class="btn">Hint (–20)</button>
+      <button id="passBtn" class="btn">Pass</button>
+    </div>
+    <div id="hintBox">Hints: <span id="hintText">none</span></div>
+    <div id="progress">Province <span id="progressNum">0</span> / <span id="totalNum">0</span></div>
+  </div>
+
+  <!-- ECO TASK OVERLAY (hidden until needed) -->
+  <div id="ecoOverlay" class="modal hidden">
+    <div class="ecoBox">
+      <h3>Eco task — help the map!</h3>
+      <p>Complete this tiny task to unlock the hint.</p>
+
+      <!-- simple mini task: click all items -->
+      <div id="ecoTaskArea" class="ecoArea">
+        <div class="trash" data-id="1"></div>
+        <div class="trash" data-id="2"></div>
+        <div class="trash" data-id="3"></div>
+        <div class="cloud" data-id="4"></div>
+        <div class="sapling" data-id="5"></div>
+        <div class="sea" data-id="6"></div>
+      </div>
+
+      <div class="modalButtons">
+        <button id="cancelEco" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OpenLayers JS -->
+  <script src="https://cdn.jsdelivr.net/npm/ol@7.4.0/dist/ol.js"></script>
+
+  <!-- main game logic -->
+  <script src="script.js"></script>
+  <!-- eco task module -->
+  <script src="ecoTask.js"></script>
+</body>
+</html>
