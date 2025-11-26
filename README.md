@@ -1,3 +1,5 @@
+https://gmt-458-web-gis.github.io/geogame-RenginOzder/
+
 ## HueQuest — First Draft / Design Document
 
 HueQuest is a web-based, map-driven treasure hunt game designed to take the player on a humorous and lively journey across all 81 provinces of Türkiye. The game blends cultural exploration with light ecological awareness, but in a way that stays playful rather than didactic. Each province presents a short, funny question about a well-known cultural site, museum, natural landmark or culinary specialty. The tone is deliberately warm and slightly mischievous—HueQuest never asks the player to “recall factual data”; instead it teases, hints, jokes and nudges. The task is simple: find the correct location on the map using only your intuition, your sense of humor, and eventually a hint or two if you get stuck.
