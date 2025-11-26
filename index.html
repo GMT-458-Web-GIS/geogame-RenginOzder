@@ -1,10 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>HueQuest — GeoGame</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HueQuest 🌍 – GeoGame</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css">
+<style>/* Başlık animasyonu */
+    #main-title {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 48px;
+        font-weight: 700;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        color: #00aaff;
+        background: linear-gradient(90deg, #00aaff, #0ee0c9, #258ab8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: hueShift 5s linear infinite;
+    }
 
+    #main-title .icon {
+        font-size: 36px;
+        margin-left: 10px;
+        animation: globeToPlant 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes hueShift {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
+    }
+ </style>
+  
   <!-- OpenLayers CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@7.4.0/ol.css">
 
@@ -24,10 +57,12 @@
   </div>
 
   <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="title">HueQuest</div>
+<h1 id="main-title">HueQuest </i></h1>
+
+<header class="topbar">
     <div class="score">Score: <span id="score">0</span></div>
-  </header>
+</header>
+
 
   <!-- QUESTION PANEL -->
   <div id="questionPanel">Question will appear here.</div>
@@ -76,3 +111,6 @@
   <script src="ecoTask.js"></script>
 </body>
 </html>
+<footer style="text-align:center; padding:20px 0; color:white; background:rgba(0,0,0,0.4); position:absolute; bottom:0; width:100%; z-index:10;">
+    © 2025 HueQuest by Rengin Özder — Designed with curiosity and care 🌍
+</footer>

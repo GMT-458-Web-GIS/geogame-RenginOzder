@@ -1,11 +1,13 @@
 // ---------------------
 // HueQuest main script
 // ---------------------
+
+// --- Game state ---
 let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 
-// HTML elements
+// --- HTML elements ---
 const startModal = document.getElementById("startModal");
 const startBtn = document.getElementById("startBtn");
 const questionPanel = document.getElementById("questionPanel");
@@ -22,15 +24,33 @@ const cancelEco = document.getElementById("cancelEco");
 // ---------------------
 // Load questions
 // ---------------------
-fetch("./question.json")
+fetch("question.json")
   .then(res => res.json())
   .then(data => {
-    questions = shuffleArray(data); // Sırayı karıştır
+    questions = shuffleArray(data);
     totalNum.textContent = questions.length;
+
+    // ✅ Butonu AKTİF hale getir
     startBtn.disabled = false;
-    console.log("Questions loaded:", questions);
+
+    // ✅ TEK ve DOĞRU start event
+    startBtn.onclick = () => {
+      if (questions.length === 0) {
+        alert("Questions not loaded!");
+        return;
+      }
+
+      startModal.classList.add("hidden");
+      score = 0;
+      currentQuestionIndex = 0;
+      scoreSpan.textContent = score;
+      showNextQuestion();
+    };
   })
-  .catch(err => console.error("Failed to load questions:", err));
+  .catch(err => {
+    console.error("Failed to load questions:", err);
+    alert("question.json yüklenmedi!");
+  });
 
 // ---------------------
 // Shuffle helper
@@ -40,7 +60,7 @@ function shuffleArray(arr) {
 }
 
 // ---------------------
-// Show question
+// Show next question
 // ---------------------
 function showNextQuestion() {
   if (currentQuestionIndex >= questions.length) {
@@ -54,17 +74,15 @@ function showNextQuestion() {
 }
 
 // ---------------------
-// Start game
+// Load question (global, sadece showNextQuestion'i çağırır)
 // ---------------------
-startBtn.addEventListener("click", () => {
-  startModal.classList.add("hidden");
-  score = 0;
-  scoreSpan.textContent = score;
+function loadQuestion() {
   showNextQuestion();
-});
+}
+
 
 // ---------------------
-// Map setup (OpenLayers) - eskisi gibi
+// Map setup (OpenLayers)
 // ---------------------
 const map = new ol.Map({
   target: "map",
@@ -75,7 +93,9 @@ const map = new ol.Map({
   })
 });
 
-// Türkiye 81 il markerları (tüm iller eklenebilir)
+// ---------------------
+// Turkey cities markers
+// ---------------------
 const cities = {
 "Adana":[35.3213,37.0000],"Adıyaman":[38.2766,37.7648],"Afyonkarahisar":[30.5423,38.7560],
   "Ağrı":[43.0510,39.7191],"Amasya":[35.8353,40.6537],"Ankara":[32.8597,39.9334],
@@ -107,7 +127,6 @@ const cities = {
 };
 
 
-
 const markers = [];
 for (const [name, coords] of Object.entries(cities)) {
   const marker = new ol.Feature({
@@ -122,9 +141,9 @@ const markerLayer = new ol.layer.Vector({
   source: vectorSource,
   style: new ol.style.Style({
     image: new ol.style.Circle({
-      radius: 6,
-      fill: new ol.style.Fill({ color: 'Blue' }),
-      stroke: new ol.style.Stroke({ color: 'white', width: 1 })
+      radius: 4,
+      fill: new ol.style.Fill({ color: 'rgba(0,0,0,0)' }), // içi boş
+      stroke: new ol.style.Stroke({ color: '#0d1b4c', width: 2 }) // lacivert
     })
   })
 });
@@ -174,6 +193,7 @@ ecoTaskArea.querySelectorAll(".trash").forEach(el => {
 });
 
 cancelEco.addEventListener("click", () => ecoOverlay.classList.add("hidden"));
+
 passBtn.addEventListener("click", () => {
   currentQuestionIndex++;
   showNextQuestion();
