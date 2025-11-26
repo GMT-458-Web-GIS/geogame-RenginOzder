@@ -1,65 +1,101 @@
-// ecoTask.js
+// ============================
+// ecoTask.js (NDVI MINI TASK - FULL WORKING)
+// ============================
 
-// Eco task setup
-export function initEcoTask({
-  ecoOverlay,      // Overlay div
-  ecoTaskArea,     // Task area div
-  hintCallback     // Bu callback, task tamamlandığında çalışacak
-}) {
-  // Task öğeleri (örnek: çöp, bulut, fidan, deniz)
-  const taskElements = [
-    { type: "trash", label: "🗑️" },
-    { type: "cloud", label: "☁️" },
-    { type: "sapling", label: "🌱" },
-    { type: "sea", label: "🌊" }
-  ];
+// ✅ NASA GIBS ÜZERİNDEN ÇALIŞAN NDVI KATMANI
+function createNdviLayer() {
+  return new ol.layer.Tile({
+    source: new ol.source.XYZ({
+      url: "https://gibs.earthdata.nasa.gov/wmts.png",
+      crossOrigin: "anonymous"
+    })
+  });
+}
 
-  // Overlay içini temizle
-  ecoTaskArea.innerHTML = "";
+// ✅ Mini harita container'ı dinamik oluşturulur
+let ecoMap = null;
+let ecoMapDiv = null;
 
-  // Her öğeyi ekle
-  taskElements.forEach(item => {
-    const el = document.createElement("div");
-    el.classList.add("eco-item", item.type);
-    el.textContent = item.label;
-    el.dataset.collected = "false";
-    ecoTaskArea.appendChild(el);
+// ✅ HINT'E BASINCA ÇAĞRILACAK FONKSİYON
+function startEcoTask() {
+  if (!window.ecoOverlay) {
+    console.error("ecoOverlay bulunamadı!");
+    return;
+  }
 
-    // Tıklama eventi
-    el.addEventListener("click", () => {
-      if (el.dataset.collected === "false") {
-        el.dataset.collected = "true";
-        el.classList.add("collected");
-      }
+  // Overlay aç
+  ecoOverlay.classList.remove("hidden");
 
-      // Task tamam mı?
-      const remaining = ecoTaskArea.querySelectorAll("[data-collected='false']");
-      if (remaining.length === 0) {
-        // Tüm görev tamamlandı
-        ecoOverlay.classList.add("hidden");
-        if (typeof hintCallback === "function") {
-          hintCallback();  // Hint açılacak
-        }
+  // Harita div'i yoksa oluştur
+  if (!ecoMapDiv) {
+    ecoMapDiv = document.createElement("div");
+    ecoMapDiv.id = "eco-task-map";
+    ecoMapDiv.style.width = "100%";
+    ecoMapDiv.style.height = "320px";
+    ecoMapDiv.style.marginTop = "10px";
+    ecoMapDiv.style.borderRadius = "10px";
+    ecoMapDiv.style.overflow = "hidden";
 
-        // Sıfırla
-        ecoTaskArea.querySelectorAll(".eco-item").forEach(it => {
-          it.dataset.collected = "false";
-          it.classList.remove("collected");
-        });
-      }
-    });
+    const ecoBox = ecoOverlay.querySelector(".ecoBox");
+    ecoBox.insertBefore(ecoMapDiv, ecoBox.querySelector(".modalButtons"));
+  }
+
+  // Harita daha önce oluşturulduysa sadece güncelle
+  if (ecoMap) {
+    ecoMap.updateSize();
+    return;
+  }
+
+  // ✅ OpenLayers NDVI mini haritası
+  ecoMap = new ol.Map({
+    target: ecoMapDiv,
+    layers: [createNdviLayer()],
+    view: new ol.View({
+      center: ol.proj.fromLonLat([35, 39]), // Türkiye ortası
+      zoom: 4
+    })
   });
 
-  // Cancel butonu
-  const cancelBtn = ecoOverlay.querySelector("#cancelEco");
-  if (cancelBtn) {
-    cancelBtn.addEventListener("click", () => {
-      ecoOverlay.classList.add("hidden");
+  // ✅ NDVI TIKLAMA GÖREVİ
+  ecoMap.on("singleclick", function (evt) {
+    ecoMap.once("rendercomplete", () => {
+      try {
+        const canvas = ecoMap.getViewport().querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const px = evt.pixel[0];
+        const py = evt.pixel[1];
+
+        const data = ctx.getImageData(px, py, 1, 1).data;
+        const [r, g, b] = data;
+
+        // ✅ DÜŞÜK NDVI TESPİTİ (KAHVERENGİ / GRİ)
+        const ndviLow = (g < 80) && (r > 90);
+
+        if (ndviLow) {
+          finishEcoTask();
+        } else {
+          alert("❌ Burası yeşil (yüksek NDVI). Daha kuru bir bölgeyi tıkla.");
+        }
+      } catch (err) {
+        alert("🚨 Görüntü okunamadı! Başka bir noktaya tıkla.");
+        console.error(err);
+      }
     });
+
+    ecoMap.render();
+  });
+}
+
+// ✅ GÖREV TAMAMLANINCA
+function finishEcoTask() {
+  ecoOverlay.classList.add("hidden");
+
+  // ✅ Ana oyuna haber ver
+  if (window.ecoTaskCompleted) {
+    window.ecoTaskCompleted();
   }
 }
 
-// Overlay’i gösterme fonksiyonu
-export function openEcoOverlay(ecoOverlay) {
-  ecoOverlay.classList.remove("hidden");
-}
+// ✅ DIŞARIYA AÇ (script.js buradan çağırıyor)
+window.startEcoTask = startEcoTask;

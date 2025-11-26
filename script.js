@@ -1,5 +1,5 @@
 // ---------------------
-// HueQuest main script
+// HueQuest main script (FIXED)
 // ---------------------
 
 // --- Game state ---
@@ -18,7 +18,6 @@ const hintBtn = document.getElementById("hintBtn");
 const hintBox = document.getElementById("hintText");
 const passBtn = document.getElementById("passBtn");
 const ecoOverlay = document.getElementById("ecoOverlay");
-const ecoTaskArea = document.getElementById("ecoTaskArea");
 const cancelEco = document.getElementById("cancelEco");
 
 // ---------------------
@@ -30,10 +29,8 @@ fetch("question.json")
     questions = shuffleArray(data);
     totalNum.textContent = questions.length;
 
-    // ✅ Butonu AKTİF hale getir
     startBtn.disabled = false;
 
-    // ✅ TEK ve DOĞRU start event
     startBtn.onclick = () => {
       if (questions.length === 0) {
         alert("Questions not loaded!");
@@ -67,6 +64,7 @@ function showNextQuestion() {
     questionPanel.textContent = "🎉 You finished the game!";
     return;
   }
+
   const q = questions[currentQuestionIndex];
   questionPanel.textContent = q.question || "Question not found!";
   hintBox.textContent = "none";
@@ -74,21 +72,13 @@ function showNextQuestion() {
 }
 
 // ---------------------
-// Load question (global, sadece showNextQuestion'i çağırır)
-// ---------------------
-function loadQuestion() {
-  showNextQuestion();
-}
-
-
-// ---------------------
 // Map setup (OpenLayers)
 // ---------------------
 const map = new ol.Map({
   target: "map",
-  layers: [ new ol.layer.Tile({ source: new ol.source.OSM() }) ],
+  layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
   view: new ol.View({
-    center: ol.proj.fromLonLat([35,39]),
+    center: ol.proj.fromLonLat([35, 39]),
     zoom: 5
   })
 });
@@ -127,6 +117,9 @@ const cities = {
 };
 
 
+// ---------------------
+// Markers
+// ---------------------
 const markers = [];
 for (const [name, coords] of Object.entries(cities)) {
   const marker = new ol.Feature({
@@ -137,23 +130,25 @@ for (const [name, coords] of Object.entries(cities)) {
 }
 
 const vectorSource = new ol.source.Vector({ features: markers });
+
 const markerLayer = new ol.layer.Vector({
   source: vectorSource,
   style: new ol.style.Style({
     image: new ol.style.Circle({
       radius: 4,
-      fill: new ol.style.Fill({ color: 'rgba(0,0,0,0)' }), // içi boş
-      stroke: new ol.style.Stroke({ color: '#0d1b4c', width: 2 }) // lacivert
+      fill: new ol.style.Fill({ color: 'rgba(0,0,0,0)' }),
+      stroke: new ol.style.Stroke({ color: '#0d1b4c', width: 2 })
     })
   })
 });
+
 map.addLayer(markerLayer);
 
 // ---------------------
 // Map click handler
 // ---------------------
-map.on('singleclick', function(evt) {
-  map.forEachFeatureAtPixel(evt.pixel, function(feature) {
+map.on('singleclick', function (evt) {
+  map.forEachFeatureAtPixel(evt.pixel, function (feature) {
     const cityName = feature.get('name');
     if (!cityName || questions.length === 0) return;
 
@@ -161,8 +156,17 @@ map.on('singleclick', function(evt) {
     if (!currentQ) return;
 
     if (cityName === currentQ.name) {
-      score += 10;
+      score += 100;
       scoreSpan.textContent = score;
+
+    // ✅ HueMaster kontrolü
+  if (score >= 8100) {
+    setTimeout(() => {
+      alert("🏆 CONGRATULATIONS! You are now a HueMaster!");
+      document.body.classList.add("huemaster");
+    }, 200);
+  }
+
       alert(`✅ Correct! ${cityName}`);
       currentQuestionIndex++;
       showNextQuestion();
@@ -173,28 +177,44 @@ map.on('singleclick', function(evt) {
 });
 
 // ---------------------
-// Hint & Eco mini-task
+// ✅ HINT & ECO TASK (NDVI VERSION - FIXED)
 // ---------------------
-hintBtn.addEventListener("click", () => ecoOverlay.classList.remove("hidden"));
-
-ecoTaskArea.querySelectorAll(".trash").forEach(el => {
-  el.addEventListener("click", () => {
-    el.classList.add("collected");
-    const remaining = ecoTaskArea.querySelectorAll(".trash:not(.collected)");
-    if (remaining.length === 0) {
-      ecoOverlay.classList.add("hidden");
-      const currentQ = questions[currentQuestionIndex];
-      hintBox.textContent = currentQ ? currentQ.hints.join(', ') : "No hint available";
-      score = Math.max(score - 20,0);
-      scoreSpan.textContent = score;
-      ecoTaskArea.querySelectorAll(".trash").forEach(t => t.classList.remove("collected"));
-    }
-  });
+hintBtn.addEventListener("click", () => {
+  startEcoTask();
 });
+
+
+// ✅ Hint geri geldiğinde (ecoTask.js çağırır)
+window.ecoTaskCompleted = function () {
+  ecoOverlay.classList.add("hidden");
+
+  const currentQ = questions[currentQuestionIndex];
+  if (currentQ && currentQ.hints) {
+    hintBox.textContent = currentQ.hints.join(", ");
+  } else {
+    hintBox.textContent = "No hint available";
+  }
+
+  score = Math.max(score - 20, 0);
+  scoreSpan.textContent = score;
+};
 
 cancelEco.addEventListener("click", () => ecoOverlay.classList.add("hidden"));
 
+// ---------------------
+// Pass button
+// ---------------------
 passBtn.addEventListener("click", () => {
   currentQuestionIndex++;
   showNextQuestion();
 });
+
+// ✅ EcoTask bağlantısı için gerekli global fonksiyonlar
+window.getCurrentQuestion = function () {
+  return questions[currentQuestionIndex];
+};
+
+window.decreaseScore = function (val) {
+  score = Math.max(score - val, 0);
+  scoreSpan.textContent = score;
+};

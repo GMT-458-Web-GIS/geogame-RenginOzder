@@ -90,3 +90,10 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"S
   #map{height:calc(100vh - 400px)}
   .modalBox{padding:16px}
 }
+#eco-task-map {
+  width: 90%;
+  height: 400px;
+  margin: 20px auto;
+  border-radius: 12px;
+  border: 2px solid #00aaff;
+}
