@@ -1,101 +1,138 @@
-// ============================
-// ecoTask.js (NDVI MINI TASK - FULL WORKING)
-// ============================
+// ---------------------
+// ecoTask.js — AirGuard Smog Cleaner (HueQuest FINAL)
+// ---------------------
 
-// ✅ NASA GIBS ÜZERİNDEN ÇALIŞAN NDVI KATMANI
-function createNdviLayer() {
-  return new ol.layer.Tile({
-    source: new ol.source.XYZ({
-      url: "https://gibs.earthdata.nasa.gov/wmts.png",
-      crossOrigin: "anonymous"
-    })
-  });
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-// ✅ Mini harita container'ı dinamik oluşturulur
-let ecoMap = null;
-let ecoMapDiv = null;
+  const ecoArea = document.getElementById("ecoTaskArea");
+  const ecoOverlay = document.getElementById("ecoOverlay");
 
-// ✅ HINT'E BASINCA ÇAĞRILACAK FONKSİYON
-function startEcoTask() {
-  if (!window.ecoOverlay) {
-    console.error("ecoOverlay bulunamadı!");
-    return;
-  }
+  let targetPM = 25;
+  let currentPM = 0;
+  let ecoActive = false;
+  let smogLayer = null;
 
-  // Overlay aç
-  ecoOverlay.classList.remove("hidden");
+  // ✅ DIŞARIDAN HINT TETİKLEME
+  window.startEcoTask = function () {
+    if (!ecoOverlay || !ecoArea) {
+      alert("EcoTask UI bulunamadı!");
+      return;
+    }
 
-  // Harita div'i yoksa oluştur
-  if (!ecoMapDiv) {
-    ecoMapDiv = document.createElement("div");
-    ecoMapDiv.id = "eco-task-map";
-    ecoMapDiv.style.width = "100%";
-    ecoMapDiv.style.height = "320px";
-    ecoMapDiv.style.marginTop = "10px";
-    ecoMapDiv.style.borderRadius = "10px";
-    ecoMapDiv.style.overflow = "hidden";
+    ecoOverlay.classList.remove("hidden");
+    ecoArea.innerHTML = "";
+    ecoActive = true;
+    window.ecoTaskReadyToClose = false;
 
-    const ecoBox = ecoOverlay.querySelector(".ecoBox");
-    ecoBox.insertBefore(ecoMapDiv, ecoBox.querySelector(".modalButtons"));
-  }
+    const q = window.getCurrentQuestion();
+    const city = q ? q.name : "Mardin";
 
-  // Harita daha önce oluşturulduysa sadece güncelle
-  if (ecoMap) {
-    ecoMap.updateSize();
-    return;
-  }
+    // ✅ ECO AREA TEMEL STİL
+    ecoArea.style.position = "relative";
+    ecoArea.style.padding = "12px";
+    ecoArea.style.color = "white";
 
-  // ✅ OpenLayers NDVI mini haritası
-  ecoMap = new ol.Map({
-    target: ecoMapDiv,
-    layers: [createNdviLayer()],
-    view: new ol.View({
-      center: ol.proj.fromLonLat([35, 39]), // Türkiye ortası
-      zoom: 4
-    })
-  });
+    // ✅ ŞEHRE GÖRE UYDU ARKA PLAN (OTOMATİK)
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
+      .then(res => res.json())
+      .then(loc => {
+        if (loc.length > 0) {
+          const lat = loc[0].lat;
+          const lon = loc[0].lon;
 
-  // ✅ NDVI TIKLAMA GÖREVİ
-  ecoMap.on("singleclick", function (evt) {
-    ecoMap.once("rendercomplete", () => {
-      try {
-        const canvas = ecoMap.getViewport().querySelector("canvas");
-        const ctx = canvas.getContext("2d");
+          const bbox = `${lon - 0.05},${lat - 0.05},${lon + 0.05},${lat + 0.05}`;
 
-        const px = evt.pixel[0];
-        const py = evt.pixel[1];
-
-        const data = ctx.getImageData(px, py, 1, 1).data;
-        const [r, g, b] = data;
-
-        // ✅ DÜŞÜK NDVI TESPİTİ (KAHVERENGİ / GRİ)
-        const ndviLow = (g < 80) && (r > 90);
-
-        if (ndviLow) {
-          finishEcoTask();
-        } else {
-          alert("❌ Burası yeşil (yüksek NDVI). Daha kuru bir bölgeyi tıkla.");
+          ecoArea.style.backgroundImage = `
+            url("https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=${bbox}&bboxSR=4326&size=900,400&imageSR=4326&f=image")
+          `;
+          ecoArea.style.backgroundSize = "cover";
+          ecoArea.style.backgroundPosition = "center";
         }
-      } catch (err) {
-        alert("🚨 Görüntü okunamadı! Başka bir noktaya tıkla.");
-        console.error(err);
+      });
+
+    // ✅ BİLGİ ALANI
+    const info = document.createElement("div");
+    info.id = "airInfo";
+    info.style.color = "white";
+    info.style.background = "rgba(0,0,0,0.55)";
+    info.style.padding = "8px";
+    info.style.borderRadius = "6px";
+    info.style.marginBottom = "10px";
+    info.innerHTML = `
+      <p><b>City cannot breathe, please clean…</b></p>
+      <p>PM2.5: <span id="pmValue">--</span></p>
+      <p>Clean the smog to unlock the hint 😶‍🌫️</p>
+    `;
+    ecoArea.appendChild(info);
+
+    // ✅ SMOG KATMANI
+    smogLayer = document.createElement("div");
+    smogLayer.id = "smogLayer";
+    smogLayer.style.width = "100%";
+    smogLayer.style.height = "220px";
+    smogLayer.style.background = "rgba(120,120,120,0.85)";
+    smogLayer.style.cursor = "pointer";
+    smogLayer.style.display = "flex";
+    smogLayer.style.alignItems = "center";
+    smogLayer.style.justifyContent = "center";
+    smogLayer.style.fontSize = "20px";
+    smogLayer.style.fontWeight = "bold";
+    smogLayer.innerText = "💨 Clean the Smog! 💨";
+    ecoArea.appendChild(smogLayer);
+
+    smogLayer.addEventListener("mousemove", cleanSmog);
+
+    // ✅ SAĞ ÜST X BUTONU
+    const closeBtn = document.createElement("div");
+    closeBtn.innerText = "✖";
+    closeBtn.style.position = "absolute";
+    closeBtn.style.top = "6px";
+    closeBtn.style.right = "10px";
+    closeBtn.style.fontSize = "22px";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.style.color = "white";
+    closeBtn.style.fontWeight = "bold";
+
+    closeBtn.onclick = () => {
+      ecoOverlay.classList.add("hidden");
+
+      if (window.ecoTaskReadyToClose) {
+        window.ecoTaskReadyToClose = false;
+        if (window.ecoTaskCompleted) window.ecoTaskCompleted(); 
       }
-    });
+    };
 
-    ecoMap.render();
-  });
-}
+    ecoArea.appendChild(closeBtn);
 
-// ✅ GÖREV TAMAMLANINCA
-function finishEcoTask() {
-  ecoOverlay.classList.add("hidden");
+    // ✅ OPENAQ GERÇEK VERİ + YEDEK SİMÜLASYON
+    fetch(`https://api.openaq.org/v2/latest?limit=1&city=${city}`)
+      .then(res => res.json())
+      .then(data => {
+        const pm = data.results?.[0]?.measurements?.find(m => m.parameter === "pm25");
+        currentPM = pm ? Math.round(pm.value) : 65;
+        document.getElementById("pmValue").textContent = currentPM;
+      })
+      .catch(() => {
+        currentPM = Math.floor(Math.random() * 40) + 50;
+        document.getElementById("pmValue").textContent = currentPM;
+      });
+  };
 
-  // ✅ Ana oyuna haber ver
-  if (window.ecoTaskCompleted) {
-    window.ecoTaskCompleted();
+  // ✅ SMOG TEMİZLEME MEKANİĞİ
+  function cleanSmog() {
+    if (!ecoActive) return;
+
+    currentPM -= 1;
+    document.getElementById("pmValue").textContent = currentPM;
+
+    const opacity = Math.max(currentPM / 100, 0.05);
+    smogLayer.style.background = `rgba(120,120,120,${opacity})`;
+
+    if (currentPM <= targetPM) {
+      ecoActive = false;
+      smogLayer.innerText = "🏞️ Atmosphere Clean! You may now close this window.";
+      window.ecoTaskReadyToClose = true; 
+    }
   }
-}
 
-// ✅ DIŞARIYA AÇ (script.js buradan çağırıyor)
-window.startEcoTask = startEcoTask;
+});

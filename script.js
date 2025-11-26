@@ -116,6 +116,7 @@ const cities = {
   "Kilis":[36.7160,36.7160],"Osmaniye":[36.2330,37.0740],"Düzce":[31.1660,40.8430]
 };
 
+window.cities = cities;
 
 // ---------------------
 // Markers
