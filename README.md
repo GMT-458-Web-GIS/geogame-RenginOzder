@@ -64,19 +64,33 @@ Failing after all hints simply moves the game forward—no hard game over.
 
 JavaScript Libraries Used (Expanded)
 Core Mapping
+
 OpenLayers — main mapping engine
+
 GeoJSON (native) — data structure for cultural points
+
 Geospatial Logic
+
 Turf.js — distance, geometry checks, buffer regions
+
 UI & Animation
+
 GSAP (GreenSock) — smooth animations for panels, overlays
+
 Anime.js — lightweight hint reveal and micro-task animations
+
 Howler.js — optional sound effects (success, failure, hint unlock)
+
 Data Visualization (bonus for advanced geovisualisation)
+
 D3.js — animated scoring charts
+
 Chart.js — simpler bar/pie charts for final screen
+
 Deck.gl — GPU-accelerated map layers, glowing outlines, province highlights
+
 Three.js — optional 3D HueMaster badge or fun transitions
+
 State & Storage
 LocalStorage API — basic save system
 LocalForage — async saving for larger datasets 
