@@ -74,14 +74,25 @@ function showNextQuestion() {
 // ---------------------
 // Map setup (OpenLayers)
 // ---------------------
+// Türkiye merkezli, uydu görüntülü ve silik OpenLayers haritası
 const map = new ol.Map({
   target: "map",
-  layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
+  layers: [
+    // Silik uydu katmanı
+    new ol.layer.Tile({
+      source: new ol.source.XYZ({
+        url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+      }),
+    })
+  ],
   view: new ol.View({
-    center: ol.proj.fromLonLat([35, 39]),
-    zoom: 5
+    center: ol.proj.fromLonLat([35.0, 39.0]), // Türkiye ortası
+    zoom: 5,
+    minZoom: 4,
+    maxZoom: 12
   })
 });
+
 
 // ---------------------
 // Turkey cities markers
@@ -138,7 +149,7 @@ const markerLayer = new ol.layer.Vector({
     image: new ol.style.Circle({
       radius: 4,
       fill: new ol.style.Fill({ color: 'rgba(0,0,0,0)' }),
-      stroke: new ol.style.Stroke({ color: '#0d1b4c', width: 2 })
+      stroke: new ol.style.Stroke({ color: '#bad3f1ff', width: 2 })
     })
   })
 });

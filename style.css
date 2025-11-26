@@ -69,7 +69,7 @@ html,body{height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"S
 #questionPanel{width:90%;max-width:1100px;align-items: center; margin:50px auto;padding:14px 18px;border-radius:12px;background:linear-gradient(180deg,rgba(3, 9, 66, 0.693), rgba(3, 9, 66, 0.693));text-align:center;font-size:1.05rem;box-shadow:0 8px 20px rgba(0,0,0,0.6)}
 
 /* Map container: must have height */
-#map{width:90%;max-width:1200px;margin:12px auto;border-radius:12px;height:calc(100vh - 340px);min-height:420px;overflow:hidden;box-shadow:0 12px 30px rgba(3, 9, 66, 0.693);background:#e6eef8}
+#map{width:90%;max-width:1200px;margin:12px auto;border-radius:12px;height:calc(100vh - 340px);min-height:400px;overflow:hidden;box-shadow:0 12px 30px rgba(3, 9, 66, 0.693);background:#e6eef8}
 
 /* control bar */
 #controlBar{width:90%;max-width:1200px;margin:6px auto;display:flex;align-items:center;gap:12px;justify-content:space-between}
