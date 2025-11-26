@@ -1,4 +1,4 @@
-## HueQuest — First Draft / Design Document##
+## HueQuest — First Draft / Design Document
 
 HueQuest is a web-based, map-driven treasure hunt game designed to take the player on a humorous and lively journey across all 81 provinces of Türkiye. The game blends cultural exploration with light ecological awareness, but in a way that stays playful rather than didactic. Each province presents a short, funny question about a well-known cultural site, museum, natural landmark or culinary specialty. The tone is deliberately warm and slightly mischievous—HueQuest never asks the player to “recall factual data”; instead it teases, hints, jokes and nudges. The task is simple: find the correct location on the map using only your intuition, your sense of humor, and eventually a hint or two if you get stuck.
 
@@ -24,17 +24,22 @@ Animated Feedback Badges appearing after correct or incorrect guesses.
 Hint Micro-Task Overlay, which darkens the map and displays the animated task.
 The interface remains fluid, playful, colorful, and highly readable. No page reloads occur; all interactions happen through JavaScript events and dynamic DOM updates.
 
-Layout Description & Sketches (to be added as PNG)
-1. Main Game Screen
+**Layout Description & Sketches (to be added as PNG)**
+*1. Main Game Screen*
 A full-screen Türkiye map is the background. The Question Panel floats at the top as a rounded, semi-transparent box. The Hint Button hovers to its right. A small progress indicator sits at the bottom left. The rest of the screen is dedicated to exploration and clicking potential answers. image
+<img width="1899" height="907" alt="Ekran görüntüsü 2025-11-16 131818" src="https://github.com/user-attachments/assets/064b7a20-8669-4c8a-bc35-a683c6f70550" />
 
-2. Ecological Mini-Task Overlay
+*2. Ecological Mini-Task Overlay*
 When requesting a hint, the map dims and a playful animated environment appears—trash to clean, clouds to swipe, a sapling to water, a sea to tidy up. Completing the task fades the overlay back into the map, unlocking the hint. image image image
+<img width="1910" height="896" alt="Ekran görüntüsü 2025-11-16 133652" src="https://github.com/user-attachments/assets/f0ec4690-26de-4f6e-a7e9-91fb8ccd34ec" />
+<img width="1910" height="901" alt="Ekran görüntüsü 2025-11-16 133830" src="https://github.com/user-attachments/assets/badb991e-578c-4279-a97e-3b85e87fa987" />
+<img width="1917" height="901" alt="Ekran görüntüsü 2025-11-16 133848" src="https://github.com/user-attachments/assets/f36c517f-8434-4203-93af-7fc746ae2e90" />
 
-3. Final Score / HueMaster Screen
+*3. Final Score / HueMaster Screen*
 Once all provinces are completed, a celebratory overlay appears with a large HueMaster badge, the final score, and a chart visualizing player performance. A restart and “replay provinces” option is included. image
+<img width="1911" height="897" alt="Ekran görüntüsü 2025-11-16 133100" src="https://github.com/user-attachments/assets/e37d7095-0775-43dc-9331-d9237a792492" />
 
-Game Progression
+**Game Progression**
 HueQuest progresses province by province, in a fixed sequence or randomized order. For each province:
 
 The game displays one cultural question.
@@ -44,11 +49,11 @@ Up to three hints are available.
 If all hints are used and the location is still not found, the game marks the province as failed and automatically moves on.
 The game ends when all 81 provinces have been attempted. Speed and number of hints affect scoring.
 
-Number of Questions
+**Number of Questions**
 There are 81 questions — one for each province of Türkiye.
 No sub-questions or bonus rounds are included at this stage.
 
-Life System
+**Life System**
 HueQuest does not use traditional “lives.”
 Instead, each province grants three hints, which act as a soft life system:
 
@@ -75,3 +80,6 @@ Three.js — optional 3D HueMaster badge or fun transitions
 State & Storage
 LocalStorage API — basic save system
 LocalForage — async saving for larger datasets 
+
+<img width="541" height="576" alt="HueQuest_EcoIcons_Flowchart drawio" src="https://github.com/user-attachments/assets/c18d9511-aa69-401c-ba17-f1e40faad09a" />
+
